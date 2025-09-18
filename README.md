@@ -1,4 +1,4 @@
-#🚬 Cigarette Counter
+#🚬 Cigarette Counter#
 
 A simple MERN stack app for tracking cigarettes — built as a personal project while exploring and learning.
 ✨ Features
