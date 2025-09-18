@@ -1,10 +1,10 @@
 # Cigarette Counter 🚬
 
 ## A simple MERN stack app for tracking cigarettes — built as a personal project while exploring and learning.
-###✨ Features
-####➕ Add and keep track of cigarette counts
-####📝 Works like a minimal note-taking app
-####⚙️ Built with MongoDB, Express, React, Node.js
+✨ Features
+➕ Add and keep track of cigarette counts
+📝 Works like a minimal note-taking app
+⚙️ Built with MongoDB, Express, React, Node.js
 
 🛠 Tech Stack
 Frontend: React
