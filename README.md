@@ -21,16 +21,16 @@
 ***👉 If you have separate backend and frontend folders, run npm install in each.*** 
 
 ### **▶️ Usage:** 
-Start the backend server: \
-cd backend \
-npm start 
+***Start the backend server:*** \
+***cd backend*** \
+***npm start*** 
 
-#### Start the frontend: 
-cd frontend \
-npm start 
+### Start the frontend: 
+***cd frontend*** \
+***npm start*** 
 
-#### Open this your browser: 
-http://localhost:3306 \
+### Open this your browser: 
+***http://localhost:3306*** \
 
 ### **📝 Notes:** 
-This is just a fun project I made while bored — don’t take it too seriously 😅
+This is just a fun project I made while bored don’t take it too seriously 😅
