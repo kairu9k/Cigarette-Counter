@@ -21,7 +21,8 @@
 ***👉 If you have separate backend and frontend folders, run npm install in each.*** 
 
 ### **▶️ Usage:** 
-***Start the backend server:*** \
+
+### Start the backend server: 
 ***cd backend*** \
 ***npm start*** 
 
