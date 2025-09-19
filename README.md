@@ -25,8 +25,7 @@
 ***cd backend*** \
 ***npm start*** 
 
-### Start the frontend: 
-
+### **Start the frontend**: 
 ***cd frontend*** \
 ***npm start*** 
 
