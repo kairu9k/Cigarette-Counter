@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: cigarette-counter
+    env: node
+    plan: free
+    buildCommand: npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: DB
+        sync: false
+      - key: FRONTEND_URL
+        value: https://cigarette-counter.onrender.com
+      - key: UPSTASH_REDIS_REST_URL
+        sync: false
+      - key: UPSTASH_REDIS_REST_TOKEN
+        sync: false
