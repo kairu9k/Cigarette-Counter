@@ -1,22 +1,37 @@
 import mongoose from "mongoose";
 
-// 1st step: create schema
-//2nd step: create a model that base off that schema
-
-const noteSchema = new mongoose.Schema(
+const cigaretteEntrySchema = new mongoose.Schema(
   {
-    title: {
+    brand: {
       type: String,
-      required: true,
+      required: false,
+      default: "Unknown Brand"
     },
-    content: {
+    quantity: {
+      type: Number,
+      required: true,
+      default: 1,
+      min: 1
+    },
+    location: {
       type: String,
-      required: true,
+      required: false,
+      default: ""
     },
+    mood: {
+      type: String,
+      enum: ["stressed", "relaxed", "social", "habit", "craving", "other"],
+      default: "habit"
+    },
+    notes: {
+      type: String,
+      required: false,
+      default: ""
+    }
   },
   { timestamps: true }
-); //createdAt, updatedAt
+);
 
-const Note = mongoose.model("Note", noteSchema);
+const CigaretteEntry = mongoose.model("CigaretteEntry", cigaretteEntrySchema);
 
-export default Note;
+export default CigaretteEntry;

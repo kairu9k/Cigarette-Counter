@@ -10,20 +10,18 @@ dotenv.config();
 console.log(process.env.DB);
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 const __dirname = path.resolve();
 
 //middleware
-if (process.env.NODE_ENV === "production") {
-  app.use(
-    cors({
-      origin: "http://localhost:5173",
-    })
-  );
-}
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "http://localhost:5174"],
+  })
+);
 app.use(express.json());
 app.use(rateLimiter);
-app.use("/api/notes", notesRoutes);
+app.use("/api/entries", notesRoutes);
 // app.use((req, res, next) => {
 //   console.log("Req method os ${req.method} & Req URL is ${req.url}");
 //   next();
