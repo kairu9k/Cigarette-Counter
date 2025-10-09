@@ -151,21 +151,64 @@ docker run -p 5000:5000 \
   cigarette-counter
 ```
 
-## **🚀 Manual Production Deployment**
+## **🚀 Production Deployment**
 
-### Build for production:
+### **Option 1: Deploy to Render (Recommended)**
+
+1. **Push your code to GitHub**
+   ```bash
+   git add .
+   git commit -m "Prepare for deployment"
+   git push origin main
+   ```
+
+2. **Deploy to Render**
+   - Go to [Render Dashboard](https://dashboard.render.com/)
+   - Click "New +" and select "Web Service"
+   - Connect your GitHub repository
+   - Render will auto-detect the `render.yaml` configuration
+   - Add environment variables in the Render dashboard:
+     - `DB`: Your MongoDB connection string (MongoDB Atlas recommended)
+     - `UPSTASH_REDIS_REST_URL`: Your Upstash Redis URL
+     - `UPSTASH_REDIS_REST_TOKEN`: Your Upstash Redis token
+     - `FRONTEND_URL`: Your deployed app URL (e.g., https://your-app.onrender.com)
+   - Click "Create Web Service"
+
+3. **Wait for deployment** (usually takes 3-5 minutes)
+
+### **Option 2: Deploy with Docker**
+
+```bash
+# Build the Docker image
+docker build -t cigarette-counter .
+
+# Run with environment file
+docker run -p 5001:5001 --env-file backend/.env cigarette-counter
+
+# Or run with environment variables
+docker run -p 5001:5001 \
+  -e DB="your_mongodb_connection_string" \
+  -e UPSTASH_REDIS_REST_URL="your_redis_url" \
+  -e UPSTASH_REDIS_REST_TOKEN="your_redis_token" \
+  -e NODE_ENV=production \
+  cigarette-counter
+```
+
+### **Option 3: Manual Production Deployment**
+
+Build for production:
 
 ```bash
 npm run build
 ```
 
-### Start production server:
+Start production server:
 
 ```bash
 npm start
 ```
 
-The backend serves the built frontend at http://localhost:5000
+The backend serves the built frontend at http://localhost:5001
 
 ## **📝 API Endpoints**
 

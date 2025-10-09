@@ -11,6 +11,16 @@ console.log(process.env.DB);
 
 const app = express();
 const PORT = process.env.PORT || 5001;
+
+// Validate required environment variables
+if (!process.env.DB) {
+  console.error("ERROR: DB environment variable is required");
+  process.exit(1);
+}
+
+if (!process.env.UPSTASH_REDIS_REST_URL || !process.env.UPSTASH_REDIS_REST_TOKEN) {
+  console.warn("WARNING: Upstash Redis credentials not found. Rate limiting may not work properly.");
+}
 const __dirname = path.resolve();
 
 //middleware
@@ -31,9 +41,10 @@ app.use("/api/entries", notesRoutes);
 // });
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../frontend/dist")));
+  const frontendPath = path.join(__dirname, "../../frontend/dist");
+  app.use(express.static(frontendPath));
   app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
+    res.sendFile(path.join(frontendPath, "index.html"));
   });
 }
 
